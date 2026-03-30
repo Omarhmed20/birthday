@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>For You 💖</title>
+
+<style>
+  body {
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(135deg, #ff9ecb, #fad0c4);
+    overflow: hidden;
+  }
+
+  .card {
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(15px);
+    padding: 40px;
+    border-radius: 20px;
+    text-align: center;
+    color: white;
+    width: 320px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    animation: fadeIn 1.5s ease;
+  }
+
+  h1 {
+    font-size: 32px;
+    margin-bottom: 10px;
+  }
+
+  p {
+    font-size: 16px;
+    opacity: 0.9;
+  }
+
+  button {
+    margin-top: 20px;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 30px;
+    background: linear-gradient(45deg, #ff4d88, #ff99cc);
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    box-shadow: 0 0 15px rgba(255, 77, 136, 0.7);
+    transition: 0.3s;
+  }
+
+  button:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 25px rgba(255, 77, 136, 1);
+  }
+
+  #gift {
+    display: none;
+    margin-top: 20px;
+    animation: fadeIn 1s ease;
+  }
+
+  .gift-img {
+    display: block;
+    margin: 15px auto;
+    width: 30;
+    max-width: 80%;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+  }
+
+  @keyframes fadeIn {
+    from {opacity: 0; transform: translateY(20px);}
+    to {opacity: 1; transform: translateY(0);}
+  }
+
+  .heart {
+    position: absolute;
+    font-size: 20px;
+    animation: floatUp linear infinite;
+  }
+
+  @keyframes floatUp {
+    from { transform: translateY(100vh); opacity: 1; }
+    to { transform: translateY(-10vh); opacity: 0; }
+  }
+</style>
+
+</head>
+
+<body>
+
+<div class="card">
+  <h1>Happy Birthday Ella 🎂</h1>
+  <p>I have something special for you 💝</p>
+
+  <button onclick="openGift()">Open your gift 🎁</button>
+
+  <div id="gift">
+    <h2>Surprise ✨</h2>
+
+    <p>
+      I know we haven’t known each other for long… but I’m really glad we met 😊  
+      <br><br>
+      You already seem like someone special, the kind of person who makes everything feel a bit nicer just by being there.  
+      <br><br>
+      I hope this year brings you happiness, success, and beautiful moments 💖  
+      <br><br>
+      And honestly… I hope I get to be part of some of them too ✨  
+    </p>
+
+    <img src="https://www.scribbler.com/cdn/shop/files/IL10.jpg?v=1728906376&width=440" class="gift-img">
+
+    <p style="margin-top:10px;">Code: XXXXXXXX</p>
+  </div>
+</div>
+
+<script>
+function openGift() {
+  document.getElementById("gift").style.display = "block";
+  createHearts();
+}
+
+function createHearts() {
+  for (let i = 0; i < 25; i++) {
+    let heart = document.createElement("div");
+    heart.innerHTML = "💖";
+    heart.className = "heart";
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.fontSize = (Math.random() * 20 + 15) + "px";
+    heart.style.animationDuration = (Math.random() * 3 + 3) + "s";
+    document.body.appendChild(heart);
+  }
+}
+</script>
+
+</body>
+</html>
